@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 @Entity
 public class Balance {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(nullable = false)
     private Timestamp createdAt;

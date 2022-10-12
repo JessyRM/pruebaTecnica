@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 @Entity
 public class Transaction {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(nullable = false)
     private Timestamp createdAt;
