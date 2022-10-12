@@ -1,1 +1,1 @@
-insert into client(createdAt, `number`) values (now(), 1234);
+insert into client(id, created_at, `number`) values (1, '2022-10-11 20:37:11.242989', 1234);
