@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
+@Table
 @Entity
 public class Client {
     @Id

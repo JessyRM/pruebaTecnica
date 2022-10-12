@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
+@Table
 @Entity
 public class Account {
     @Id
@@ -37,16 +38,16 @@ public class Account {
         this.createdAt = createdAt;
     }
 
-    public List<Balance> getBalanceHistory() {
-        return balanceHistory;
-    }
-
     public Client getClient() {
         return client;
     }
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public List<Balance> getBalanceHistory() {
+        return balanceHistory;
     }
 
     public void setBalanceHistory(List<Balance> balance_history) {

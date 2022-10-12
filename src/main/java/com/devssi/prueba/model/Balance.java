@@ -3,6 +3,7 @@ package com.devssi.prueba.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Table
 @Entity
 public class Balance {
     @Id

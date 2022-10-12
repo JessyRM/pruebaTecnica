@@ -1,0 +1,1 @@
+insert into client(createdAt, `number`) values (now(), 1234);
