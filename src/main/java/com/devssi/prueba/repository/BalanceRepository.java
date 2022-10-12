@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 public interface BalanceRepository extends CrudRepository<Balance, Long> {
-    @Query("select b from Balance b where b.account.id = :accountId")
+    @Query(value = "select * from balance b where b.account_id = :accountId order by b.created_at limit 1 ", nativeQuery = true)
     Balance getBalanceForAccount(Long accountId);
 }
