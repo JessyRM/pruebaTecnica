@@ -5,8 +5,18 @@ import java.util.Date;
 public class AccountDTO {
     Long account;
     Integer balance;
-    Long owner;
+    Integer owner;
     Date createdAt;
+
+    public AccountDTO() {
+    }
+
+    public AccountDTO(Long account, Integer balance, Integer owner, Date createdAt) {
+        this.account = account;
+        this.balance = balance;
+        this.owner = owner;
+        this.createdAt = createdAt;
+    }
 
     public Long getAccount() {
         return account;
@@ -24,11 +34,11 @@ public class AccountDTO {
         this.balance = balance;
     }
 
-    public Long getOwner() {
+    public Integer getOwner() {
         return owner;
     }
 
-    public void setOwner(Long owner) {
+    public void setOwner(Integer owner) {
         this.owner = owner;
     }
 
