@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class AccountDTO {
     Long account;
-    Integer balance;
-    Integer owner;
+    Long balance;
+    Long owner;
     Date createdAt;
 
     public AccountDTO() {
     }
 
-    public AccountDTO(Long account, Integer balance, Integer owner, Date createdAt) {
+    public AccountDTO(Long account, Long balance, Long owner, Date createdAt) {
         this.account = account;
         this.balance = balance;
         this.owner = owner;
@@ -26,19 +26,19 @@ public class AccountDTO {
         this.account = account;
     }
 
-    public Integer getBalance() {
+    public Long getBalance() {
         return balance;
     }
 
-    public void setBalance(Integer balance) {
+    public void setBalance(Long balance) {
         this.balance = balance;
     }
 
-    public Integer getOwner() {
+    public Long getOwner() {
         return owner;
     }
 
-    public void setOwner(Integer owner) {
+    public void setOwner(Long owner) {
         this.owner = owner;
     }
 

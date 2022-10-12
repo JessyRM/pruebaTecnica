@@ -12,7 +12,7 @@ public class Client {
     private Long id;
     private Timestamp createdAt;
     @Column(nullable = false)
-    private Integer number;
+    private Long number;
     @OneToMany(mappedBy = "client")
     private List<Account> accounts;
 
@@ -29,11 +29,11 @@ public class Client {
         this.createdAt = createdAt;
     }
 
-    public Integer getNumber() {
+    public Long getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(Long number) {
         this.number = number;
     }
 

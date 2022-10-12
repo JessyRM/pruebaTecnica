@@ -12,7 +12,7 @@ public class Balance {
     @Column(nullable = false)
     private Timestamp createdAt;
     @Column(nullable = false)
-    private Integer amount;
+    private Long amount;
     @ManyToOne
     @JoinColumn(name = "account_id")
     Account account;
@@ -29,11 +29,11 @@ public class Balance {
         this.createdAt = createdAt;
     }
 
-    public Integer getAmount() {
+    public Long getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
 
