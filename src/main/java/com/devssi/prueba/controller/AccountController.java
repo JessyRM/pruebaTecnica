@@ -40,4 +40,9 @@ public class AccountController {
         return balanceService.getBalanceForAccount(accountId);
     }
 
+    @GetMapping("/{accountId}/received-transactions")
+    public TransactionsDTO getReceivedTransactions(@PathVariable Long accountId) {
+        return service.getReceivedTransactions(accountId);
+    }
+
 }
