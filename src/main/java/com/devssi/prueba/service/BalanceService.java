@@ -1,5 +1,7 @@
 package com.devssi.prueba.service;
 
+import com.devssi.prueba.dto.BalanceDTO;
+import com.devssi.prueba.dto.BalanceResponseDTO;
 import com.devssi.prueba.model.Account;
 import com.devssi.prueba.model.Balance;
 import com.devssi.prueba.repository.BalanceRepository;
@@ -24,5 +26,15 @@ public class BalanceService {
         balance.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         repository.save(balance);
         return true;
+    }
+
+    public BalanceResponseDTO getBalanceForAccount(Long accountId) {
+        Balance balance = repository.getBalanceForAccount(accountId);
+        BalanceResponseDTO balanceResponseDTO = new BalanceResponseDTO(new BalanceDTO());
+        balanceResponseDTO.getBalance().setAccount(balance.getAccount().getId());
+        balanceResponseDTO.getBalance().setOwner(balance.getAccount().getClient().getNumber());
+        balanceResponseDTO.getBalance().setBalance(balance.getAmount());
+        balanceResponseDTO.getBalance().setCreatedAt(balance.getCreatedAt());
+        return balanceResponseDTO;
     }
 }
