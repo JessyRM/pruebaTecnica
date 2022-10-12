@@ -9,6 +9,7 @@ import com.devssi.prueba.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -55,6 +56,12 @@ public class TransactionService {
         Long newToAmount = toAccount.getLastBalance().getAmount() + amount;
         boolean success = balanceService.createBalance(newFromAmount, fromAccount) &&
                 balanceService.createBalance(newToAmount, toAccount);
+        Transaction newTransaction = new Transaction();
+        newTransaction.setAmount(amount);
+        newTransaction.setCreatedAt(new Timestamp(System.currentTimeMillis()));
+        newTransaction.setFromAccount(fromAccount);
+        newTransaction.setToAccount(toAccount);
+        repository.save(newTransaction);
         return success ? new TransactionResultDTO() : new TransactionResultDTO("error en la operacion");
     }
 }
