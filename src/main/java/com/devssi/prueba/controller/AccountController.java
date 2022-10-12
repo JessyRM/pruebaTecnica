@@ -29,4 +29,5 @@ public class AccountController {
     public TransactionsDTO getAccountTransactions(@PathVariable Long accountId){
         return transactionService.getAccountTransactions(accountId);
     }
+
 }

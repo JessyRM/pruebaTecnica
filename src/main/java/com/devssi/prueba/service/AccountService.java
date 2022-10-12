@@ -7,6 +7,8 @@ import com.devssi.prueba.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class AccountService {
 
@@ -25,5 +27,9 @@ public class AccountService {
                     );
         }
         return accountsDTO;
+    }
+
+    public Optional<Account> getAccountById(Long id){
+        return repository.findById(id);
     }
 }
