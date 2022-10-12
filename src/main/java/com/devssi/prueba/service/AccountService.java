@@ -51,6 +51,23 @@ public class AccountService {
             );
         }
         return transactionsDTO;
+    }
 
+    public TransactionsDTO getSentTransactions(Long accountId) {
+        Optional<Account> account = repository.findById(accountId);
+        TransactionsDTO transactionsDTO = new TransactionsDTO();
+        if (account.isPresent()) {
+            account.get().getSentTransactionHistory().forEach(
+                    transaction -> {
+                        TransactionDTO transactionDTO = new TransactionDTO();
+                        transactionDTO.setFromAccount(transaction.getFromAccount().getId());
+                        transactionDTO.setToAccount(transaction.getToAccount().getId());
+                        transactionDTO.setSentAt(transaction.getCreatedAt());
+                        transactionDTO.setAmount(transaction.getAmount());
+                        transactionsDTO.getTransactions().add(transactionDTO);
+                    }
+            );
+        }
+        return transactionsDTO;
     }
 }

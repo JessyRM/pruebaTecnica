@@ -45,4 +45,9 @@ public class AccountController {
         return service.getReceivedTransactions(accountId);
     }
 
+    @GetMapping("/{accountId}/sent-transactions")
+    public TransactionsDTO getSentTransactions(@PathVariable Long accountId) {
+        return service.getSentTransactions(accountId);
+    }
+
 }
